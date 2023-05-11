@@ -1,5 +1,3 @@
-import { NextResponse } from "next/server";
-
 export async function POST(request: Request) {
   const data = await request.json();
 
@@ -7,5 +5,12 @@ export async function POST(request: Request) {
   console.log({ url });
   await fetch(url);
 
-  return NextResponse.json({ success: true });
+  return new Response(url, {
+    status: 200,
+    headers: {
+      "Access-Control-Allow-Origin": "*",
+      "Access-Control-Allow-Methods": "*",
+      "Access-Control-Allow-Headers": "*",
+    },
+  });
 }
