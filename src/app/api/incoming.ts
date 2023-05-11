@@ -1,10 +1,9 @@
-import { NextApiRequest, NextApiResponse } from "next";
+import { NextResponse } from "next/server";
 
-export async function GET(request: NextApiRequest, response: NextApiResponse) {
-  const data = {
-    body: request.body,
-    query: request.query,
-  };
-  console.log(JSON.stringify({ data }));
-  response.status(200).json(data);
+export async function GET(request: Request) {
+  const data = await request.json();
+
+  console.log({ data, h: 1 });
+
+  return NextResponse.json({ data });
 }
