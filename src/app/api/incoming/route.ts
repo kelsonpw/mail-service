@@ -5,7 +5,7 @@ export async function GET(request: Request) {
 
   console.log({ data, h: 1 });
 
-  return NextResponse.json({ data });
+  return NextResponse.json({ data: true });
 }
 
 export async function POST(request: Request) {
@@ -13,5 +13,5 @@ export async function POST(request: Request) {
 
   console.log({ data, h: 1 });
 
-  return NextResponse.json({ data });
+  return NextResponse.json({ success: true });
 }
