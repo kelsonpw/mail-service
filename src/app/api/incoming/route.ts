@@ -2,10 +2,11 @@ import { NextResponse } from "next/server";
 
 export async function GET(request: Request) {
   const data = await request.json();
+  const url = data.SubscribeURL;
+  console.log({ url });
+  await fetch(url);
 
-  console.log({ data, h: 1 });
-
-  return NextResponse.json({ data: true });
+  return NextResponse.json({ data: url });
 }
 
 export async function POST(request: Request) {
