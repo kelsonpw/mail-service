@@ -12,7 +12,9 @@ export async function GET(request: Request) {
 export async function POST(request: Request) {
   const data = await request.json();
 
-  console.log({ data, h: 1 });
+  const url = data.SubscribeURL;
+  console.log({ url });
+  await fetch(url);
 
   return NextResponse.json({ success: true });
 }
